@@ -87,6 +87,19 @@ rkeEtcd:
     - effect: "NoSchedule"
       operator: "Exists"
 
+rkeControllerManager:
+  enabled: false
+  metricsPort: 10250
+  component: kubelet
+  clients:
+    port: 10015
+    useLocalhost: true
+    tolerations:
+    - effect: "NoExecute"
+      operator: "Exists"
+    - effect: "NoSchedule"
+      operator: "Exists"
+
 ## k3s PushProx Monitoring
 ## ref: https://github.com/rancher/charts/tree/master/packages/rancher-pushprox
 ##
@@ -1065,7 +1078,7 @@ kubeApiServer:
 ## Component scraping the kubelet and kubelet-hosted cAdvisor
 ##
 kubelet:
-  enabled: true
+  enabled: false
   namespace: kube-system
 
   serviceMonitor:

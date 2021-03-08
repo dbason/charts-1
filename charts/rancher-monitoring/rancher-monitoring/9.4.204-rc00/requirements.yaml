@@ -135,3 +135,11 @@ dependencies:
   enabled: false
   importvalues: []
   alias: ""
+- name: rkeKubelet
+  version: ""
+  repository: file://./charts/rkeKubelet
+  condition: rkeKubelet.enabled
+  tags: []
+  enabled: false
+  importvalues: []
+  alias: ""
